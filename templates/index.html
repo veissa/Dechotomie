@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dechotomie challenge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="game-card">
+            <div class="card-header">
+                <h1>Dechotomie challenge</h1>
+                <div class="attempts-counter">
+                    <span class="attempts-label">Attempts:</span>
+                    <span class="attempts-number">{{ 10 - attempts }}</span>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <p class="game-description">I'm thinking of a number between 0 and 100. Can you guess it?</p>
+                
+                {% if message %}
+                <div class="feedback-message {% if 'Congratulations' in message %}success{% elif 'Game Over' in message %}error{% else %}info{% endif %}">
+                    {{ message }}
+                </div>
+                {% endif %}
+
+                {% if not game_over %}
+                <form method="POST" class="guess-form">
+                    <div class="input-group">
+                        <input type="number" name="guess" min="0" max="100" required 
+                               placeholder="Enter your guess (0-100)" autocomplete="off">
+                        <button type="submit">Guess</button>
+                    </div>
+                </form>
+                {% else %}
+                <form method="POST" class="restart-form">
+                    <button type="submit" class="restart-button">Play Again</button>
+                </form>
+                {% endif %}
+            </div>
+
+            <div class="card-footer">
+                <div class="hint-box">
+                    <h3>💡 Hint</h3>
+                    <p>Mn nytaak hhhh rak wld lprepa z3ma a bizzuuu ...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,223 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+}
+
+.game-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    overflow: hidden;
+    animation: cardAppear 0.5s ease-out;
+}
+
+.card-header {
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+h1 {
+    color: #4ecca3;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.attempts-counter {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(78, 204, 163, 0.1);
+    border-radius: 50px;
+    font-size: 1.1rem;
+}
+
+.attempts-number {
+    font-weight: 600;
+    color: #4ecca3;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.game-description {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #e0e0e0;
+}
+
+.feedback-message {
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 10px;
+    font-weight: 500;
+    text-align: center;
+    animation: messageAppear 0.3s ease-out;
+}
+
+.feedback-message.success {
+    background: rgba(78, 204, 163, 0.1);
+    border: 1px solid #4ecca3;
+    color: #4ecca3;
+}
+
+.feedback-message.error {
+    background: rgba(255, 107, 107, 0.1);
+    border: 1px solid #ff6b6b;
+    color: #ff6b6b;
+}
+
+.feedback-message.info {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.input-group {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+input[type="number"] {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1.1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #4ecca3;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+button {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 10px;
+    background: #4ecca3;
+    color: #1a1a2e;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+button:hover {
+    background: #3db390;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(78, 204, 163, 0.3);
+}
+
+.restart-button {
+    width: 100%;
+    background: #4ecca3;
+    margin-top: 1rem;
+}
+
+.card-footer {
+    padding: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hint-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.hint-box h3 {
+    color: #4ecca3;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.hint-box p {
+    color: #e0e0e0;
+    font-style: italic;
+    margin: 0;
+}
+
+/* Remove spinner buttons from number input */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Animations */
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes messageAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .card-header, .card-body, .card-footer {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+} 
